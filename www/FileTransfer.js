@@ -127,7 +127,11 @@ FileTransfer.prototype.upload = function(filePath, server, successCallback, erro
         httpMethod = options.httpMethod || "POST";
         if (httpMethod.toUpperCase() == "PUT"){
             httpMethod = "PUT";
-        } else {
+        }
+        else if (httpMethod.toUpperCase() == "PATCH") {
+            httpMethod = "PATCH";
+        }
+        else {
             httpMethod = "POST";
         }
         if (options.chunkedMode !== null || typeof options.chunkedMode != "undefined") {
